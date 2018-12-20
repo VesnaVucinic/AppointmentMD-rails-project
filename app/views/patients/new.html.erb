@@ -1,2 +1,20 @@
-<h1>Patients#new</h1>
-<p>Find me in app/views/patients/new.html.erb</p>
+<h1>Patient Sign Up<h1>
+
+  <h2><%= form_for @patient do |f| %>
+  <%= f.label :name, "Name:" %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :password, "Password:" %>
+  <%= f.text_field :password %>
+  <br>
+  <%= f.label :age, "Age:" %>
+  <%= f.text_field :age %>
+  <br>
+  <%=f.label :height, "Height" %>
+  <%=f.text_field :height %>
+  <br>
+  <%= f.label :date_of_birth, "Date of Birth:" %>
+  <%= f.text_field :date_of_birth %></h2>
+  <br>
+  <%= f.submit "Create New Patient" %>
+  <% end %>

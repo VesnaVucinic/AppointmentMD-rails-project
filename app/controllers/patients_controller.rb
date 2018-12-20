@@ -1,30 +1,33 @@
 class PatientsController < ApplicationController
   def new
+    @patient = Patient.new
   end
 
   def show
     if session[:user.id]
-      @user = User.find_by(id: params[:id])
+      @patient = Patient.find_by(id: params[:id])
     else
       redirect_to root_path
+    end
   end
 
   def create
-    @user = User.new(user_params)
+    @patient = Patient.new(patient_params)
 
-    if @user
-      @user.save
-      session[:user.id] = @user.id
-      redirect_to user_path(@user)
+    if @patient
+      @patient.save
+      session[:patient.id] = @patient .id
+      redirect_to patient_path(@patient)
     else
-      render 'users/new'
+      render 'patients/new'
     end
   end
 
   private
 
   def patient_params
-    params.require(:patient).permit(:name, :age, :height, :date_of_birth)
+    params.require(:patient).permit(:name, :age, :height, :date_of_birth, :password)
+  end
 
 
 end
