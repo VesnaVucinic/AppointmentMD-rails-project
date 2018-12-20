@@ -3,13 +3,7 @@ class PatientsController < ApplicationController
     @patient = Patient.new
   end
 
-  def show
-    if session[:patient.id]
-      @patient = Patient.find_by(id: params[:id])
-    else
-      redirect_to root_path
-    end
-  end
+
 
   def create
     @patient = Patient.new(patient_params)
@@ -20,6 +14,14 @@ class PatientsController < ApplicationController
       redirect_to patient_path(@patient)
     else
       render 'patients/new'
+    end
+  end
+
+  def show
+    if session[:patient.id]
+      @patient = Patient.find_by(id: params[:id])
+    else
+      redirect_to root_path
     end
   end
 

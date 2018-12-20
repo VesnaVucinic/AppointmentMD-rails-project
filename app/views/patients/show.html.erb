@@ -1,2 +1,8 @@
-<h1>Patients#show</h1>
-<p>Find me in app/views/patients/show.html.erb</p>
+<h1><%= @patient.name %></h1>
+<h2><ul>
+<li>Age: <%= @patient.age %></li>
+<li>Height: <%= @patient.height %></li>
+<li>Birthday: <%= @patient.date_of_birth %></li>
+</ul></h2>
+<h3><p><%= link_to "See Physicians", physician_path %></p>
+<p><%= link_to "Log Out", logout_path %></p></h3>

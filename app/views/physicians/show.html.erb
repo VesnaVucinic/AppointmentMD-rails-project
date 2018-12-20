@@ -1,2 +1,7 @@
-<h1>Physicians#show</h1>
-<p>Find me in app/views/physicians/show.html.erb</p>
+<h1><%= @physician.name %></h1>
+<br>
+<h2><%= @physician.specialty %></h2>
+<br>
+<%= link_to "See All Appointments", appointment_path %>
+<%= link_to "Create New Appointment", new_appointment_path %>
+<%= link_to "Logout", logout_path %>

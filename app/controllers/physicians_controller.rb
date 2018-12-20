@@ -3,13 +3,6 @@ class PhysiciansController < ApplicationController
     @physician = Physician.new
   end
 
-  def show
-    if session[physician.id]
-      @physician = Physician.find_by(id: params[:id])
-    else
-      redirect_to root_path
-    end
-  end
 
   def create
     @physician = Physician.new(physician_params)
@@ -20,6 +13,15 @@ class PhysiciansController < ApplicationController
       redirect_to physician_path(@physician)
     else
       render 'physician/new'
+    end
+  end
+
+
+  def show
+    if session[physician.id]
+      @physician = Physician.find_by(id: params[:id])
+    else
+      redirect_to root_path
     end
   end
 
