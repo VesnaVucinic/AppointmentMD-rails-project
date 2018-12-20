@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
   root 'welcome#home'
   get 'signin' => 'sessions#new'
   post 'signin' => 'sessions#create'

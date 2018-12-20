@@ -1,2 +1,14 @@
-<h1>Physicians#new</h1>
-<p>Find me in app/views/physicians/new.html.erb</p>
+<h1>Physician Sign Up Page<h1>
+
+  <h2><%= form_for @physician do |f| %>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :password, "Password" %>
+    <%= f.password_field :password %>
+    <br>
+    <%= f.label :specialty, "Specialty" %>
+    <%= f.text_field :specialty %>
+    <br>
+    <%= f.submit "Create New Physician" %>
+    <% end %>
