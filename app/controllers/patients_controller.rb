@@ -10,7 +10,7 @@ class PatientsController < ApplicationController
 
     if @patient
       @patient.save
-      session[:patient.id] = @patient.id
+      session[:patient_id] = @patient.id
       redirect_to patient_path(@patient)
     else
       render 'patients/new'
@@ -18,7 +18,7 @@ class PatientsController < ApplicationController
   end
 
   def show
-    if session[:patient.id]
+    if session[:patient_id]
       @patient = Patient.find_by(id: params[:id])
     else
       redirect_to root_path
