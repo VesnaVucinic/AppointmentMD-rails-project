@@ -1,27 +1,14 @@
 Rails.application.routes.draw do
-  get 'welcome/home'
-  get 'locations/new'
-  get 'locations/show'
-  get 'locations/index'
-  get 'locations/destroy'
 
-  get 'appointments/new'
-  get 'appointments/show'
-  get 'appointments/index'
-  get 'appointments/destroy'
+  root 'welcome#home'
+  get 'signin' => 'sessions#new'
+  post 'signin' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 
-  get 'patients/new'
-  get 'patients/show'
-  get 'patients/index'
-  get 'patients/destroy'
-  get 'patientss/new'
-  get 'patientss/show'
-  get 'patientss/index'
-  get 'patientss/destroy'
-  
-  get 'physicians/new'
-  get 'physicians/show'
-  get 'physicians/index'
-  get 'physicians/destroy'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :physicians, only: [:new, :create, :show, :destroy]
+  resources :patients, only: [:new, :create, :show, :destroy]
+  resources :appointments, only: [:new, :create, :show, :edit]
+  resources :locations, only: [:new, :create, :show, :edit, :destroy]
+    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
