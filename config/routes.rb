@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'welcome/home'
   get 'locations/new'
   get 'locations/show'
   get 'locations/index'
