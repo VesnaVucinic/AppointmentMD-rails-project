@@ -1,11 +1,14 @@
 <% if flash[:notice] %>
 <div class="notice"> <%= flash[:notice] %> </div>
+<% end %>
 <h1><%= @physician.name %></h1>
 <br>
 <h2><%= @physician.specialty %></h2>
 <br>
-<%= link_to "See All Appointments", appointment_path %>
-<%= link_to "Create New Appointment", new_appointment_path %>
-<%= link_to "See All Locations", location_path %>
-<%= link_to "Create New Location", new_location_path %>
-<%= link_to "Logout", logout_path %>
+
+<p><%= link_to "Edit Your Info", edit_physician_path(@physician) %></p>
+<p><%= link_to "See All Appointments", appointment_path %></p>
+<p><%= link_to "Create New Appointment", new_appointment_path %></p>
+<p><%= link_to "See All Locations", location_path %></p>
+<p><%= link_to "Create New Location", new_location_path %></p>
+<p><%= link_to "Logout", logout_path %></p>

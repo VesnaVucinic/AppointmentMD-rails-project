@@ -34,4 +34,5 @@ class LocationsController < ApplicationController
 
   def location_params
     params.require(:location).permit(:street, :city, :state, :zipcode, :hours_of_operation)
+  end 
 end
