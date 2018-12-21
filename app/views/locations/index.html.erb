@@ -1,2 +1,14 @@
-<h1>Locations#index</h1>
-<p>Find me in app/views/locations/index.html.erb</p>
+<h1> Listing all available Locations in AppointmentMD </h1>
+<% @locations.each do |location| %>
+<%= location.name %>
+<%= location.street %>
+<%= loaction.city %>
+<%= location.state %>
+<%= location.zipcode %>
+<br>
+<%= location.hours_of_operation %>
+<% end %>
+
+<%= "Would you like to see all available Physician's at #{location.name}"%><%= link_to "#{location.name}", location_path(location) %>
+<%= link_to "See Physicians", physician_path %>
+<%= link_to "Log Out", logout_path %>
