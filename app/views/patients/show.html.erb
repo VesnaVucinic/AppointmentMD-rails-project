@@ -1,13 +1,14 @@
 <% if flash[:notice] %>
 <div class="notice"><%= flash[:notice] %></div>
 <% end %>
-<h1><%= @patient.name %></h1>
+<h1><strong><%= @patient.name %></strong></h1>
 <br><br>
-<ul>
 <% if @patient.appointments %>
 <% @patient.appaointments.each do |appointment| %>
-<%= appointment.date %>
-<%= appointment.time %>
+<ul>
+<li><%= appointment.date %></li>
+<li><%= appointment.time %></li>
+</ul>
 <% else %>
 <%= "You currently have no appointments. Would you like to set a new appointment?" %>
 <% end %>

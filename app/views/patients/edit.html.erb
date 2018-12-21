@@ -1,0 +1,23 @@
+<h1>Edit Patient Info<h1>
+
+  <h2><%= form_for @patient do |f| %>
+  <%= f.label :name, "Name:" %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :password, "Password:" %>
+  <%= f.password_field :password %>
+  <br>
+  <%= f.label :age, "Age:" %>s
+  <%= f.text_field :age %>
+  <br>
+  <%=f.label :height, "Height" %>
+  <%=f.text_field :height %>
+  <br>
+  <%= f.label :date_of_birth, "Date of Birth:" %>
+  <%= f.text_field :date_of_birth %></h2>
+  <br>
+  <%= f.submit "Edit Patient Info" %>
+  <% end %>
+
+
+  <%= link_to "Back", patients_path %> 

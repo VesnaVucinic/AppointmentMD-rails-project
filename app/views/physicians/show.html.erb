@@ -1,9 +1,9 @@
 <% if flash[:notice] %>
 <div class="notice"> <%= flash[:notice] %> </div>
 <% end %>
-<h1><%= @physician.name %></h1>
+<h1><strong><%= @physician.name %></strong></h1>
 <br>
-<h2><%= @physician.specialty %></h2>
+<h2><strong><%= @physician.specialty %></strong></h2>
 <br>
 
 <p><%= link_to "Edit Your Info", edit_physician_path(@physician) %></p>
