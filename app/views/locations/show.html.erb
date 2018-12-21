@@ -4,12 +4,13 @@
 <%= @loaction.city %>
 <%= @location.state %>
 <%= @location.zipcode %>
-</h2><br>
+<br>
 <%= @location.hours_of_operation %>
 <br><br>
 <% @location.physicians.each do |physician| %>
 <%= link_to "#{physician.name}", physician_path %>
 <% end %>
+</h2>
 
 
 <%= link_to "Create New Location", new_location_path %>

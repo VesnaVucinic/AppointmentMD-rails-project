@@ -1,2 +1,17 @@
-<h1>Appointments#new</h1>
-<p>Find me in app/views/appointments/new.html.erb</p>
+<h1>Create a new Appointment</h1>
+<br>
+<%= form_for @appointment do |f| %>
+<%= f.label :date, "Date:" %>
+<%= f.date_field :date %>
+<br>
+<%= f.label :time, "Time:" %>
+<%= f.text_field :time %>
+Location: <%= f.text.field :location.name %>
+<br>
+Physician: <%= f.text_field :physician.name %>
+<br>
+<%= f.submit "Create New Appointment"
+<% end %>
+
+<h3><p><%= link_to "See All Appointments", appointment_path %></p>
+    <p><%= link_to "Log Out", logout_path %></p></h3>

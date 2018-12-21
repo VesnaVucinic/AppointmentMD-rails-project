@@ -1,12 +1,6 @@
 <h1> Listing all available Locations in AppointmentMD </h1>
 <% @locations.each do |location| %>
 <%= location.name %>
-<%= location.street %>
-<%= loaction.city %>
-<%= location.state %>
-<%= location.zipcode %>
-<br>
-<%= location.hours_of_operation %>
 <% end %>
 
 <%= "Would you like to see all available Physician's at #{location.name}"%><%= link_to "#{location.name}", location_path(location) %>
