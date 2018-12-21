@@ -1,2 +1,24 @@
-<h1>Locations#new</h1>
-<p>Find me in app/views/locations/new.html.erb</p>
+<h1>Create a new Location Below</h1>
+<br><br>
+
+
+<%= form_for @location do |f| %>
+<%= f.label :street, "Street:" %>
+<%= f.text_field :street %>
+<br>
+<%= f.label :city, "City:" %>
+<%= f.text_field :city %>
+<br>
+<%= f.label :state, "State:" %>
+<%= f.text_field :state %>
+<br>
+<%= f.label :zipcode, "Zipcode:" %>
+<%= f.text_field :zipcode %>
+<br>
+<%= f.label :hours_of_operation, "Hours of Operation:" %>
+<%= f.text_field :hours_of_operation %>
+<br>
+<%= f.submit "Create a new Location" %>
+<% end %>
+
+<%= link_to "Back", physician_path %>
