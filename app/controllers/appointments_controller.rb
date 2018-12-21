@@ -15,11 +15,24 @@ class AppointmentsController < ApplicationController
 
     if @appointment
       @appointment.save
+      flash[:notice] = "Successfully Createed a new Appointment"
       redirect_to appointment_path(@appointment)
     else
       render 'appointments/new'
     end
   end
+
+  def update
+    @appointment = Appointment.find_id(:id params[:id])
+    @appoitment.update(appointment_params)
+    if @appointment.save
+      flash[:notice] = "Successfully updated Appointment"
+      redirect_to appointment_path(@appointment)
+    else
+      flash[:notice] = "There was an Error Updating Appointment Info"
+      redirect_to appointment_path(@appointment)
+    end
+
 
 
   def destroy

@@ -1,2 +1,8 @@
-<h1>Appointments#show</h1>
-<p>Find me in app/views/appointments/show.html.erb</p>
+<h1>Appointment Info page</h1>
+<br>
+<h2><%= @appointment.date %>
+    <%= @appointment.time %>
+    <%= @appointment.patient.name %>
+    <%= @appointment.physician.name %>
+    <%= @ppointment.location.name %>
+    </h2>
