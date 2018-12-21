@@ -1,8 +1,17 @@
+<% if flash[:notice] %>
+<div class="notice"><%= flash[:notice] %></div>
+<% end %>
 <h1><%= @patient.name %></h1>
-<h2><ul>
-<li>Age: <%= @patient.age %></li>
-<li>Height: <%= @patient.height %></li>
-<li>Birthday: <%= @patient.date_of_birth %></li>
-</ul></h2>
+<br><br>
+<ul>
+<% if @patient.appointments %>
+<% @patient.appaointments.each do |appointment| %>
+<%= appointment.date %>
+<%= appointment.time %>
+<% else %>
+<%= "You currently have no appointments. Would you like to set a new appointment?" %>
+<% end %>
 <h3><p><%= link_to "See Physicians", physician_path %></p>
-<p><%= link_to "Log Out", logout_path %></p></h3>
+    <p><%= link_to "Edit Your Info", edit_patient_path(@patient) %></p>
+    <p><%= link_to "To Go Back", patients_path %></p>
+    <p><%= link_to "Log Out", logout_path %></p></h3>

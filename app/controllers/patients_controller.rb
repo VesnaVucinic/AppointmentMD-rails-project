@@ -1,8 +1,14 @@
 class PatientsController < ApplicationController
+
+
   def new
     @patient = Patient.new
   end
 
+
+  def index
+    @patients = Patient.all
+  end
 
 
   def create
@@ -10,6 +16,7 @@ class PatientsController < ApplicationController
 
     if @patient
       @patient.save
+      flash[:notice] = "Successfully created a new Patient"
       session[:patient_id] = @patient.id
       redirect_to patient_path(@patient)
     else

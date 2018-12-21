@@ -1,4 +1,6 @@
 class PhysiciansController < ApplicationController
+
+
   def new
     @physician = Physician.new
   end
@@ -6,7 +8,6 @@ class PhysiciansController < ApplicationController
   def index
     @physicians = Physicians.all
   end
-  
 
 
   def create
@@ -14,9 +15,11 @@ class PhysiciansController < ApplicationController
 
     if @physician
       @physician.save
+      flash[:notice] = "Successfully created Physician"
       session[:physician_id] = @physician.id
       redirect_to physician_path(@physician)
     else
+      flash[:notice] = "There was an error creating a Physician"
       render 'physician/new'
     end
   end
