@@ -14,11 +14,13 @@ class SessionsController < ApplicationController
     patient = Patient.find_by(name: params[:name])
     if patient && patient.authenticate(params[:password])
       session[:patient.id] = patient.id
+      flash[:notice] = "Successfully created a Patient"
       redirect_to patient_path(patient)
     elsif
       physician = Physician.find_by(name: params[:name])
       if physician && physician.authenticate(params[:password])
         sessions[:physician.id] = physician.id
+        flash[:notice] = "Successfully created a Physician"
         redirect_to physician_path(physician)
       else
         render 'session/new'
@@ -30,6 +32,7 @@ class SessionsController < ApplicationController
 
     def destroy
      reset_session
+     flash[:notice] = "You have been Successfully Logged Out"
      redirect_to root_path
     end
 

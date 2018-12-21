@@ -19,7 +19,7 @@ class PhysiciansController < ApplicationController
       session[:physician_id] = @physician.id
       redirect_to physician_path(@physician)
     else
-      flash[:notice] = "There was an error creating a Physician"
+      flash[:notice] = "There was an error creating a new Physician"
       render 'physician/new'
     end
   end
@@ -32,6 +32,8 @@ class PhysiciansController < ApplicationController
       redirect_to root_path
     end
   end
+
+
 
   private
 

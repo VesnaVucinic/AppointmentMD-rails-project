@@ -20,6 +20,7 @@ class PatientsController < ApplicationController
       session[:patient_id] = @patient.id
       redirect_to patient_path(@patient)
     else
+      flash[:notice] = "There was an error creating a new Patient"
       render 'patients/new'
     end
   end
@@ -31,6 +32,20 @@ class PatientsController < ApplicationController
       redirect_to root_path
     end
   end
+
+
+  def update
+    @patient = Patient.find_by(id: params[:id])
+    @patient.update(patient_params)
+    if @patient.save
+      flash[:notice] = "Successfully Updated Patient"
+      redirect_to patient_path(@patient)
+    else
+      flash[:notice] = "There was an Error Updating Patient Info"
+      redirect_to patient_path(@patient)
+    end 
+  end
+
 
   private
 

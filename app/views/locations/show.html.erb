@@ -1,2 +1,16 @@
-<h1>Locations#show</h1>
-<p>Find me in app/views/locations/show.html.erb</p>
+<h1><%= @location.name %></h1>
+<h2>
+<%= @location.street %>
+<%= @loaction.city %>
+<%= @location.state %>
+<%= @location.zipcode %>
+</h2><br>
+<%= @location.hours_of_operation %>
+<br><br>
+<% @location.physicians.each do |physician| %>
+<%= link_to "#{physician.name}", physician_path %>
+<% end %>
+
+
+<%= link_to "Create New Location", new_location_path %>
+<%= link_to "Log Out", logout_path %>
