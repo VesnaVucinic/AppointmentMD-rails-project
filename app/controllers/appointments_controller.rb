@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   def new
-    @appointments = Appointment.new
+    @appointment = Appointment.new
   end
 
   def show
@@ -23,8 +23,8 @@ class AppointmentsController < ApplicationController
   end
 
   def update
-    @appointment = Appointment.find_id(:id params[:id])
-    @appoitment.update(appointment_params)
+
+    @appointment.update(appointment_params)
     if @appointment.save
       flash[:notice] = "Successfully updated Appointment"
       redirect_to appointment_path(@appointment)
@@ -32,6 +32,7 @@ class AppointmentsController < ApplicationController
       flash[:notice] = "There was an Error Updating Appointment Info"
       redirect_to appointment_path(@appointment)
     end
+  end
 
 
 

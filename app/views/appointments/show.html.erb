@@ -5,4 +5,5 @@
     <%= @appointment.patient.name %>
     <%= @appointment.physician.name %>
     <%= @ppointment.location.name %>
-    </h2>
+</h2><br><br>
+<%= link_to 'Edit', edit_appointment_path(@appointment) %>

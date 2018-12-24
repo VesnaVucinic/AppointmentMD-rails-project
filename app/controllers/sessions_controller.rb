@@ -13,13 +13,13 @@ class SessionsController < ApplicationController
   def create
     @patient = Patient.find_by(name: params[:name])
     if @patient && @patient.authenticate(params[:password])
-      session[:patient.id] = @patient.id
+      session[:user_id] = @patient.id
       flash[:notice] = "Successfully created a Patient"
       redirect_to patient_path(@patient)
     elsif
       @physician = Physician.find_by(name: params[:name])
       if @physician && @physician.authenticate(params[:password])
-        sessions[:physician.id] = @physician.id
+        sessions[:user_id] = @physician.id
         flash[:notice] = "Successfully created a Physician"
         redirect_to physician_path(@physician)
       else
@@ -35,7 +35,7 @@ class SessionsController < ApplicationController
       u.password = auth['info']['password']
       u.image = auth['info']['image']
     end
-    session[:patient.id] = @patient.id
+    session[:user_id] = @patient.id
     flash[:notice] = "Successfully created a Patient"
     render 'welcome/home'
   elsif
@@ -44,7 +44,7 @@ class SessionsController < ApplicationController
       u.password = auth['info']['password']
       u.image = auth['info']['image']
     end
-    session[:physician.id] = @physician.id
+    session[:user_id] = @physician.id
     flash[:notice] = "Successfully created a Physician"
     render 'welcome/home'
   end
