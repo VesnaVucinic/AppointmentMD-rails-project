@@ -6,9 +6,9 @@
 <h2><strong><%= @physician.specialty %></strong></h2>
 <br>
 
-<p><%= link_to "Edit Your Info", physician_path  %></p>
-<p><%= link_to "See All Appointments", appointment_path %></p>
-<p><%= link_to "Create New Appointment", new_appointment_path %></p>
-<p><%= link_to "See All Locations", location_path %></p>
-<p><%= link_to "Create New Location", new_location_path %></p>
-<p><%= link_to "Logout", logout_path %></p>
+<p><%= link_to "Edit Your Info", physician_path, class:"btn btn-primary btn-light"  %></p>
+<p><%= link_to "See All Appointments", appointment_path, class:"btn btn-primary btn-light" %></p>
+<p><%= link_to "Create New Appointment", new_appointment_path, class:"btn btn-primary btn-light" %></p>
+<p><%= link_to "See All Locations", location_path, class:"btn btn-primary btn-light" %></p>
+<p><%= link_to "Create New Location", new_location_path, class:"btn btn-primary btn-light" %></p>
+<p><%= link_to "Logout", logout_path, class:"btn btn-primary btn-light" %></p>

@@ -1,28 +1,17 @@
 <h1>Create a new Appointment</h1>
 <br>
 <%= form_for @appointment do |f| %>
-<% if appointment.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@appointment.errroscount, "error") %> prohibited this appointment from being saved:</h2>
-
-  <ul>
-    <% @appointment.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-    </ul>
-    </div>
-    <% end %>
 <%= f.label :date, "Date:" %>
 <%= f.date_field :date %>
 <br>
 <%= f.label :time, "Time:" %>
-<%= f.text_field :time %>
-Location: <%= f.text.field :appointment.location.name %>
+<%= f.time_field :time %>
+Location: <%= f.check_box :location_id %>
 <br>
-Physician: <%= f.text_field :appointment.physician.name %>
+Physician: <%= f.check_box :physician_id %>
 <br>
 <%= f.submit "Create New Appointment" %>
 <% end %>
 
-<h3><p><%= link_to "See All Appointments", appointment_path %></p>
-    <p><%= link_to "Log Out", logout_path %></p></h3>
+<h3><p><%= link_to "See All Appointments", appointments_path, class:"btn btn-primary btn-light" %></p>
+    <p><%= link_to "Log Out", logout_path, class:"btn btn-primary btn-light" %></p></h3>

@@ -12,7 +12,7 @@
 <% else %>
 <%= "You currently have no appointments. Would you like to set a new appointment?" %>
 <% end %>
-<h3><p><%= link_to "See Physicians", physician_path %></p>
-    <p><%= link_to "Edit Your Info", edit_patient_path(@patient) %></p>
-    <p><%= link_to "To Go Back", patients_path %></p>
-    <p><%= link_to "Log Out", logout_path %></p></h3>
+<h3><p><%= link_to "See Physicians", physician_path, class:"btn btn-primary btn-light" %></p>
+    <p><%= link_to "Edit Your Info", edit_patient_path(@patient), class:"btn btn-primary btn-light" %></p>
+    <p><%= link_to "To Go Back", patients_path, class:"btn btn-primary btn-light" %></p>
+    <p><%= link_to "Log Out", logout_path, class:"btn btn-primary btn-light" %></p></h3>
