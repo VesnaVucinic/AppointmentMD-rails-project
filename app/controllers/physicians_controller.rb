@@ -12,7 +12,6 @@ class PhysiciansController < ApplicationController
 
   def create
     @physician = Physician.new(physician_params)
-
     if @physician
       @physician.save
       flash[:notice] = "Successfully created Physician"
@@ -26,11 +25,7 @@ class PhysiciansController < ApplicationController
 
 
   def show
-    if session[:physician_id]
-      @physician = Physician.find_by(id: params[:id])
-    else
-      redirect_to root_path
-    end
+    find_physician
   end
 
 
@@ -39,6 +34,11 @@ class PhysiciansController < ApplicationController
 
   def physician_params
     params.require(:physician).permit(:name, :specialty, :password)
+  end
+
+
+  def find_physician
+    @physician = Physician.find_by(params[:id])
   end
 
 

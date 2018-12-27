@@ -1,17 +1,16 @@
 <h1>Physician Sign Up Page<h1>
 
   <h2><%= form_for @physician do |f| %>
-    <%= f.label :name, "Name" %>
+    <%= f.label :name, "Name:" %>
     <%= f.text_field :name %>
     <br>
-    <%= f.label :password, "Password" %>
+    <%= f.label :password, "Password:" %>
     <%= f.password_field :password %>
     <br>
-    <%= f.label :specialty, "Specialty" %>
+    <%= f.label :specialty, "Specialty:" %>
     <%= f.text_field :specialty %>
     <br>
     <%= f.submit "Create New Physician" %>
     <% end %>
     <br>
-
     <h3><%= link_to "Back", root_path, class:"btn btn-primary btn-light" %></h3>
