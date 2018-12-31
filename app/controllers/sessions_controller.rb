@@ -1,22 +1,19 @@
+require 'pry'
+
 class SessionsController < ApplicationController
 
 
 
   def new
-    if session[:patient_id]
-      redirect_to patient_path(:session_id)
-    elsif session[:physician_id]
-      redirect_to session[:physician_id]
-    else
       @patient = Patient.new
       @physician = Physician.new
-    end
   end
 
 
 
 
   def create
+    binding.pry
     @patient = Patient.find_by(name: params[:name])
     if @patient && @patient.authenticate(params[:password])
       session[:patient_id] = @patient.id

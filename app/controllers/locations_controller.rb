@@ -6,7 +6,7 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = Location.find_by(id: params[:id])
+    find_location
   end
 
   def index
@@ -14,7 +14,7 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = Locationm.new(location_params)
+    @location = Location.new(location_params)
 
     if @location
       @location.save
@@ -27,12 +27,15 @@ class LocationsController < ApplicationController
   end
 
 
-  def destroy
-  end
 
   private
 
   def location_params
     params.require(:location).permit(:street, :city, :state, :zipcode, :hours_of_operation)
-  end 
+  end
+
+
+  def find_location
+    @location = Location.find_by(params[:id])
+  end
 end

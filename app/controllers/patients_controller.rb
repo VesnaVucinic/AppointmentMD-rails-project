@@ -58,7 +58,7 @@ class PatientsController < ApplicationController
   end
 
   def find_patient
-    @patient = Patient.find_by(params[:id])
+    @patient = Patient.find_by(id: params[:id])
   end
 
 

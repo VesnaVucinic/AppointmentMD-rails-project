@@ -28,6 +28,27 @@ class PhysiciansController < ApplicationController
     find_physician
   end
 
+  def edit
+    find_physician
+  end
+
+
+  def update
+   find_physician
+   @physician.update(physician_params)
+   if @physician.valid?
+     redirect_to physician_path
+   else
+     redirect_to edit_physician_path
+   end
+  end
+
+  def destroy
+    find_physician
+    redirect_to root_path
+  end
+
+
 
 
   private
@@ -38,7 +59,7 @@ class PhysiciansController < ApplicationController
 
 
   def find_physician
-    @physician = Physician.find_by(params[:id])
+    @physician = Physician.find_by(id: params[:id])
   end
 
 

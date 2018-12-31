@@ -1,4 +1,4 @@
-<h1><strong><%= @patient.name %></strong></h1>
+<h1><%= @patient.name %></h1>
 <br><br>
 <% if @patient.appointments %>
 <% @patient.appointments.each do |appointment| %>
@@ -6,6 +6,7 @@
 <li>You have n appointment on: <%= appointment.date %></li>
 <li><%= appointment.time %></li>
 </ul>
+<% end %>
 <% else %>
 <%= "You currently have no appointments. Would you like to set a new appointment?" %>
 <% end %>
