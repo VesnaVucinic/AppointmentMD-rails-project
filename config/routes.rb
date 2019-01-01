@@ -6,9 +6,8 @@ Rails.application.routes.draw do
 
 
   get '/signin' =>  'sessions#new'
-  post '/signin' => 'sessions#new'
-  get '/signin' =>  'sessions#create'
-  delete '/logout' => 'sessions#delete'
+  post '/signin' =>  'sessions#create'
+  get '/logout' => 'sessions#delete'
 
 
   resources :patients
@@ -18,9 +17,4 @@ Rails.application.routes.draw do
 
 
 
-
-
-
-
-    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

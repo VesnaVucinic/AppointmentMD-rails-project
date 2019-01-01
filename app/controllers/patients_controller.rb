@@ -37,10 +37,10 @@ class PatientsController < ApplicationController
     @patient.update(patient_params)
     if @patient.save
       flash[:notice] = "Successfully Updated Patient"
-      redirect_to patient_path
+      redirect_to patient_path(@patient)
     else
       flash[:notice] = "There was an Error Updating Patient Info"
-      redirect_to edit_patient_path
+      redirect_to edit_patient_path(@pateint)
     end
   end
 

@@ -3,6 +3,9 @@
 
 
 <%= form_for @location do |f| %>
+<%= f.label :name, "Name:" %>
+<%= f.text_field :name %>
+<br>
 <%= f.label :street, "Street:" %>
 <%= f.text_field :street %>
 <br>
@@ -16,7 +19,7 @@
 <%= f.text_field :zipcode %>
 <br>
 <%= f.label :hours_of_operation, "Hours of Operation:" %>
-<%= f.text_field :hours_of_operation %>
+<%= f.time_field :hours_of_operation %>
 <br>
 <%= f.submit "Create a new Location" %>
 <% end %>

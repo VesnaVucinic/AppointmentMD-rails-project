@@ -5,7 +5,7 @@ class CreateLocations < ActiveRecord::Migration[5.2]
       t.string :city
       t.string :state
       t.integer :zipcode
-      t.string :hours_of_operation
+      t.time :hours_of_operation
 
 
       t.timestamps

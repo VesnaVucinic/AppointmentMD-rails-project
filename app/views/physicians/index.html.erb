@@ -3,7 +3,7 @@
 <h2>
   <% @physicians.each do |physician| %>
   <ul>
-    <li><%= link_to "#{physician.name}", physician_path physician %></li>
+    <li><%= link_to "#{physician.name}", physician_path(physician) %></li>
     <ul>
       <% end %>
     </h2>

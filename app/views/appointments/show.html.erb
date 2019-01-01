@@ -1,9 +1,10 @@
 <h1>Appointment Info page</h1>
 <br>
-<h2><%= @appointment.date %>
-    <%= @appointment.time %>
-    <%= @appointment.patient.name %>
-    <%= @appointment.physician.name %>
-    <%= @ppointment.location.name %>
+<% @appointments.each do |appointment| %>
+<h2><%= appointment.date %>
+    <%= appointment.time %>
+    <%= appointment.patient.name %>
+    <%= appointment.physician.name %>
+    <%= ppointment.location.name %>
+    <% end %>
 </h2><br><br>
-<%= link_to 'Edit', edit_appointment_path(@appointment), class:"btn btn-primary btn-light" %>

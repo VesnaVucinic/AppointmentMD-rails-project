@@ -1,5 +1,3 @@
-require 'pry'
-
 class SessionsController < ApplicationController
 
 
@@ -13,16 +11,15 @@ class SessionsController < ApplicationController
 
 
   def create
-    binding.pry
-    @patient = Patient.find_by(name: params[:name])
-    if @patient && @patient.authenticate(params[:password])
-      session[:patient_id] = @patient.id
+    @patient = Patient.find_by(params[:patient][:name])
+    if @patient && @patient.authenticate(params[:patient][:password])
+      session[:user_id] = @patient.id
       flash[:notice] = "Successfully created a Patient"
       redirect_to patient_path(@patient)
     elsif
-      @physician = Physician.find_by(name: params[:name])
-      if @physician && @physician.authenticate(params[:password])
-        sessions[:physician_id] = @physician.id
+      @physician = Physician.find_by(params[:physician][:name])
+      if @physician && @physician.authenticate(params[:physician][:password])
+        sessions[:user_id] = @physician.id
         flash[:notice] = "Successfully created a Physician"
         redirect_to physician_path(@physician)
       else

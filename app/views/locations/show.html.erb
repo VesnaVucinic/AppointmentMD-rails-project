@@ -1,12 +1,12 @@
 <h1><%= @location.name %></h1>
 <h2>
 <%= @location.street %>
-<%= @loaction.city %>
+<%= @location.city %>
 <%= @location.state %>
 <%= @location.zipcode %>
 <br>
 <%= @location.hours_of_operation %>
-<br><br>
+<br><br>s
 <% @location.physicians.each do |physician| %>
 <%= link_to "#{physician.name}", physician_path %>
 <% end %>

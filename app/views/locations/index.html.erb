@@ -1,8 +1,10 @@
 <h1> Listing all available Locations in AppointmentMD </h1>
+<p><h2> Click on the name of the location to see more about that location</h2><p>
 <% @locations.each do |location| %>
-<%= location.name %>
+<%= link_to "#{location.name}", location_path(location) %>
+<br><br>
 <% end %>
+<br><br><br>
 
-<%= "Would you like to see all available Physician's at #{location.name}"%><%= link_to "#{location.name}", location_path(location) %>
-<%= link_to "See Physicians", physician_path, class:"btn btn-primary btn-light" %>
+<%= link_to "See Physicians", physicians_path, class:"btn btn-primary btn-light" %>
 <%= link_to "Log Out", logout_path, class:"btn btn-primary btn-light" %>

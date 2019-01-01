@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_21_145519) do
+ActiveRecord::Schema.define(version: 2019_01_01_174105) do
 
   create_table "appointments", force: :cascade do |t|
+    t.date "date"
+    t.time "time"
     t.integer "physician_id"
     t.integer "patient_id"
     t.integer "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "date"
-    t.time "time"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -27,16 +27,17 @@ ActiveRecord::Schema.define(version: 2018_12_21_145519) do
     t.string "city"
     t.string "state"
     t.integer "zipcode"
-    t.string "hours_of_operation"
+    t.time "hours_of_operation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "patients", force: :cascade do |t|
     t.string "name"
-    t.string "age"
-    t.string "height"
-    t.string "date_of_birth"
+    t.integer "age"
+    t.integer "height"
+    t.date "date_of_birth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"

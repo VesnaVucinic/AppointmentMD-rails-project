@@ -1,3 +1,4 @@
+require 'pry'
 class LocationsController < ApplicationController
 
 
@@ -15,11 +16,10 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
-
     if @location
       @location.save
       flash[:notice] = "A new location was created"
-      redirect_to location_path(@location)
+      redirect_to locations_path(@location)
     else
       flash[:notice] = "Sorry, you were not able to create a new location"
       render 'location/new'
@@ -31,7 +31,7 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:street, :city, :state, :zipcode, :hours_of_operation)
+    params.require(:location).permit(:name, :street, :city, :state, :zipcode, :hours_of_operation)
   end
 
 

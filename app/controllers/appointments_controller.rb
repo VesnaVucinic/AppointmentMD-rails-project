@@ -4,7 +4,7 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @appointment = Appointment.find_by(id: params[:id])
+    @appointments = Appointment.all
   end
 
   def index
@@ -15,7 +15,7 @@ class AppointmentsController < ApplicationController
 
     if @appointment
       @appointment.save
-      flash[:notice] = "Successfully Createed a new Appointment"
+      flash[:notice] = "Successfully Created a new Appointment"
       redirect_to appointment_path(@appointment)
     else
       render 'appointments/new'
