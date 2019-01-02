@@ -1,9 +1,33 @@
 <h1>Listing All Physicians In AppointmentMD</h1>
 <br><br>
-<h2>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Specialty</th>
+    <th>Loactions</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    </tr>
+
+
   <% @physicians.each do |physician| %>
-  <ul>
-    <li><%= link_to "#{physician.name}", physician_path(physician) %></li>
-    <ul>
+  <tr>
+    <td><%= link_to physician.name, physician %></td>
+    <td><%= physician.specialty %></td>
+    <td><% if physician.location %>
+      <%= link_to physician.appointment.location.name, physician.appointment.location %>
+      <% else %>
+      <em>No location</em>
       <% end %>
-    </h2>
+      </td>
+      <td><%= link_to 'Show', physician %></td>
+      <td><%= link_to 'Edit', edit_physician_path(physician) %></td>
+      </tr>
+      <% end %>
+      </table>
+      <br>
+
+      <%= link_to 'New Physician', new_physician_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_01_174105) do
+ActiveRecord::Schema.define(version: 2019_01_02_165924) do
 
   create_table "appointments", force: :cascade do |t|
     t.date "date"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_01_01_174105) do
   end
 
   create_table "locations", force: :cascade do |t|
+    t.string "name"
     t.string "street"
     t.string "city"
     t.string "state"
@@ -30,21 +31,21 @@ ActiveRecord::Schema.define(version: 2019_01_01_174105) do
     t.time "hours_of_operation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
   end
 
   create_table "patients", force: :cascade do |t|
     t.string "name"
     t.integer "age"
     t.integer "height"
+    t.string "password_digest"
     t.date "date_of_birth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
   end
 
   create_table "physicians", force: :cascade do |t|
     t.string "name"
+    t.string "email"
     t.string "password_digest"
     t.string "specialty"
     t.datetime "created_at", null: false

@@ -1,16 +1,6 @@
 <h1>Edit Physician Info<h1>
 
-  <h2><%= form_for @physician do |f| %>
-    <%= f.label :name, "Name" %>
-    <%= f.text_field :name %>
-    <br>
-    <%= f.label :password, "Password" %>
-    <%= f.password_field :password %>
-    <br>
-    <%= f.label :specialty, "Specialty" %>
-    <%= f.text_field :specialty %>
-    <br>
-    <%= f.submit "Edit Physician" %>
-    <% end %>
+  <%= render 'form' %>
 
-    <%= link_to "Back", physician_path, class:"btn btn-primary btn-light" %>
+    <%= link_to "Show", @physician %> |
+    <%= link_to "Back", physicians_path, class:"btn btn-primary btn-light" %>
