@@ -1,22 +1,22 @@
 <h1>Patient Sign Up<h1>
 
   <h2><%= form_for @patient do |f| %>
-  <%= f.label :name, "Name:" %>
-  <%= f.text_field :name %>
-  <br>
-  <%= f.label :password, "Password:" %>
-  <%= f.password_field :password %>
-  <br>
-  <%= f.label :age, "Age:" %>
-  <%= f.text_field :age %>
-  <br>
-  <%=f.label :height, "Height" %>
-  <%=f.text_field :height %>
-  <br>
-  <%= f.label :date_of_birth, "Date of Birth:" %>
-  <%= f.date_field :date_of_birth %></h2>
-  <br>
-  <%= f.submit "Create New Patient" %>
-  <% end %>
-  <br>
-  <h3><%= link_to "Back", root_path, class:"btn btn-primary btn-light" %></h3>
+   <%= f.label :name, "Name:" %>
+   <%= f.text_field :name %>
+   <br>
+   <%= f.label :password, "Password:" %>
+   <%= f.password_field :password %>
+   <br>
+   <%= f.label :age, "Age:" %>
+   <%= f.text_field :age %>
+   <br>
+   <%=f.label :height, "Height" %>
+   <%=f.text_field :height %>
+   <br>
+   <%= f.label :date_of_birth, "Date of Birth:" %>
+   <%= f.date_field :date_of_birth %></h2>
+   <br>
+   <%= f.submit "Create New Patient" %>
+   <% end %>
+   <br>
+   <h3><%= link_to "Back", root_path, class:"btn btn-primary btn-light" %></h3>

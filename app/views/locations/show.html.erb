@@ -6,7 +6,7 @@
 <%= @location.zipcode %>
 <br>
 <%= @location.hours_of_operation %>
-<br><br>s
+<br><br>
 <% @location.physicians.each do |physician| %>
 <%= link_to "#{physician.name}", physician_path %>
 <% end %>

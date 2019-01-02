@@ -4,14 +4,14 @@ Rails.application.routes.draw do
   root 'welcome#home'
   #get '/auth/facebook/callback' => 'sessions#create'
 
+  get '/signin', to: 'sessions#new'
+  post '/signin', to: 'sessions#create'
+  delete '/logout', to:  'sessions#destroy'
 
-  get '/signin' =>  'sessions#new'
-  post '/signin' =>  'sessions#create'
-  get '/logout' => 'sessions#delete'
-
-
+  resources :physicians do
+    resources :locations, only: [:edit, :new]
+  end
   resources :patients
-  resources :physicians
   resources :locations
   resources :appointments
 

@@ -3,7 +3,7 @@
 <h2><strong><%= @physician.specialty %></strong></h2>
 <br>
 
-<p><%= link_to "Edit Your Info", physician_path, class:"btn btn-primary btn-light"  %></p>
+<p><%= link_to "Edit Your Info", physician_path(@physician), class:"btn btn-primary btn-light"  %></p>
 <p><%= link_to "See All Appointments", appointment_path, class:"btn btn-primary btn-light" %></p>
 <p><%= link_to "Create New Appointment", new_appointment_path, class:"btn btn-primary btn-light" %></p>
 <p><%= link_to "See All Locations", locations_path, class:"btn btn-primary btn-light" %></p>
