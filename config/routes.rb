@@ -8,9 +8,8 @@ Rails.application.routes.draw do
   post '/signin', to: 'sessions#create'
   delete '/logout', to:  'sessions#destroy'
 
-  resources :physicians do
-    resources :locations, only: [:edit, :new]
-  end
+
+  resources :physicians
   resources :patients
   resources :locations
   resources :appointments
