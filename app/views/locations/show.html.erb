@@ -10,13 +10,12 @@
 <br><br>
 
 <p>Physician currently taking appointments at this location</p><br>
-<% if @location.physician %>
-<% @location.physicians.each do |physician| %>
-<%= link_to "#{physician.name}", physician_path %>
+<% @location.appointments.each do |appointment| %>
+<%= link_to "#{appointment.physician_id.name}", physician_path %>
 <% end %>
 </h2>
 
 <%= link_to "Edit Location", edit_location_path, class:"btn btn-primary btn-light" %> |
 <%= link_to "Create New Location", new_location_path, class:"btn btn-primary btn-light" %> |
 <%= link_to "Log Out", logout_path, class:"btn btn-primary btn-light" %> |
-<%= link_to "Back", locations_path %> 
+<%= link_to "Back", locations_path %>

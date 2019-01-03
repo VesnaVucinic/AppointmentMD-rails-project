@@ -4,15 +4,15 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @appointments = Appointment.all
+    @appointment = Appointment.find(params[:id])
   end
 
   def index
+    @appointments = Appointment.all
   end
 
   def create
     @appointment = Appointment.new(appointment_params)
-
     if @appointment
       @appointment.save
       flash[:notice] = "Successfully Created a new Appointment"
@@ -23,7 +23,6 @@ class AppointmentsController < ApplicationController
   end
 
   def update
-
     @appointment.update(appointment_params)
     if @appointment.save
       flash[:notice] = "Successfully updated Appointment"

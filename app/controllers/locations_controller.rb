@@ -1,4 +1,3 @@
-require 'pry'
 class LocationsController < ApplicationController
 
 
@@ -36,6 +35,6 @@ class LocationsController < ApplicationController
 
 
   def find_location
-    @location = Location.find_by(params[:id])
+    @location = Location.find_by(id: params[:id])
   end
 end

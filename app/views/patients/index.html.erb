@@ -3,8 +3,8 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Address</th>
-    <th>Phone</th>
+    <th>Age</th>
+    <th></th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,8 +13,7 @@
 <% @patients.each do |patient| %>
   <tr>
     <td><%= patient.name %></td>
-    <td><%= patient.address %></td>
-    <td><%= patient.phone %></td>
+    <td><%= patient.age %></td>
     <td><%= link_to 'Show', patient %></td>
     <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
   </tr>

@@ -1,7 +1,7 @@
 <h1>Appointment Info page</h1>
 <br></br>
-<h2>Physician</h2>
-<%= link_to Physician.find(@appointment.physician_id).name, @appointment.physician %>
+<h2>Physician:</h2>
+<%= link_to Physician.find_by(@appointment.physician_id).name, @appointment.physician %>
 <br>
 <h2>Patient</h2>
 <%= link_to Patient.find(@appointment.patient_id).name, @appointment.patient %>
