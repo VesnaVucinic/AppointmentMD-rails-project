@@ -6,7 +6,7 @@
   <tr>
     <th>Name</th>
     <th>Specialty</th>
-    <th>Loactions</th>
+    <th>Locations</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,12 +17,7 @@
   <tr>
     <td><%= link_to physician.name, physician %></td>
     <td><%= physician.specialty %></td>
-    <td><% if physician.location %>
-      <%= link_to physician.appointment.location.name, physician.appointment.location %>
-      <% else %>
-      <em>No location</em>
-      <% end %>
-      </td>
+
       <td><%= link_to 'Show', physician %></td>
       <td><%= link_to 'Edit', edit_physician_path(physician) %></td>
       </tr>

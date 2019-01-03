@@ -1,17 +1,6 @@
 <h1>Create a new Appointment</h1>
-<br>
-<%= form_for @appointment do |f| %>
-<%= f.label :date, "Date:" %>
-<%= f.date_field :date %>
-<br>
-<%= f.label :time, "Time:" %>
-<%= f.time_field :time %>
-Location: <%= f.check_box :location_id %>
-<br>
-Physician: <%= f.check_box :physician_id %>
-<br>
-<%= f.submit "Create New Appointment" %>
-<% end %>
 
-<h3><p><%= link_to "See All Appointments", appointments_path, class:"btn btn-primary btn-light" %></p>
-    <p><%= link_to "Log Out", logout_path, class:"btn btn-primary btn-light" %></p></h3>
+<% render 'form' %>
+
+
+<%= link_to 'Back', appointments_path %> 

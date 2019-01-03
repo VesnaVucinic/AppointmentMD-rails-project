@@ -1,11 +1,16 @@
 <h1> Welcome to AppointmentMD<h1>
+  <br></br>
+  <br></br>
 
 
 
 
 
-<h2><p><%= link_to "Sign In", signin_path, class:"btn btn-primary btn-light" %></p><br></h2>
-<h2><p><%= link_to "Sign Up", new_patient_path, class:"btn btn-primary btn-light" %></p><br></h2>
-<br><br>
+
+<h4>If You are a new Patient, please Sign Up by clicking the link below</h4>
+<h2><p><%= link_to "Patient Sign Up", new_patient_path, class:"btn btn-primary btn-light" %></p><br></h2>
+
 If You are a Physician, please Sign Up by clicking the link below
 <h2><p><%= link_to "Physician Sign Up", new_physician_path, class:"btn btn-primary btn-light" %></p><br></h2>
+<h2><%= link_to "Patient Sign In", patient_signin_path, class:"btn btn-primary btn-light" %></h2>
+<h2><%= link_to "Physician Sign In", physician_signin_path, class:"btn btn-primary btn-light" %><br><br><br<br></h2>

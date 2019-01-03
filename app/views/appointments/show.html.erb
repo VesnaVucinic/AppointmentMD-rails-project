@@ -1,10 +1,12 @@
 <h1>Appointment Info page</h1>
+<br></br>
+<h2>Physician</h2>
+<%= link_to Physician.find(@appointment.physician_id).name, @appointment.physician %>
 <br>
-<% @appointments.each do |appointment| %>
-<h2><%= appointment.date %>
-    <%= appointment.time %>
-    <%= appointment.patient.name %>
-    <%= appointment.physician.name %>
-    <%= ppointment.location.name %>
-    <% end %>
-</h2><br><br>
+<h2>Patient</h2>
+<%= link_to Patient.find(@appointment.patient_id).name, @appointment.patient %>
+<br><br>
+
+
+<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+<%= link_to 'Back', appointments_path %>

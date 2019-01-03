@@ -1,15 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-
-<h1>Name:<strong><%= @physician.name %></strong></h1>
+<h1>Name:<%= @physician.name %></h1>
 <br>
 <h2>Specialty:<strong><%= @physician.specialty %></strong></h2>
 <br>
-<h2>Locations:<% if @physician.location %>
-  <%= link-to @physician.location.name, @physician.location %>
-  <% else %>
-  <em>No locations</em>
-  <% end %>
+
 
 
 

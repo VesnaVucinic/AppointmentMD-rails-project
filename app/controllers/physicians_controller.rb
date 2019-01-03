@@ -25,7 +25,7 @@ class PhysiciansController < ApplicationController
 
 
   def show
-    find_physician
+    @physician = Physician.find_by(id: params[:id])
   end
 
   def edit
@@ -54,7 +54,7 @@ class PhysiciansController < ApplicationController
   private
 
   def physician_params
-    params.require(:physician).permit(:name, :specialty, :password)
+    params.require(:physician).permit(:name, :email, :specialty, :password)
   end
 
 
