@@ -1,27 +1,7 @@
 <h1>Create a new Location Below</h1>
-<br><br>
 
 
-<%= form_for @location do |f| %>
-<%= f.label :name, "Name:" %>
-<%= f.text_field :name %>
-<br>
-<%= f.label :street, "Street:" %>
-<%= f.text_field :street %>
-<br>
-<%= f.label :city, "City:" %>
-<%= f.text_field :city %>
-<br>
-<%= f.label :state, "State:" %>
-<%= f.text_field :state %>
-<br>
-<%= f.label :zipcode, "Zipcode:" %>
-<%= f.text_field :zipcode %>
-<br>
-<%= f.label :hours_of_operation, "Hours of Operation:" %>
-<%= f.time_field :hours_of_operation %>
-<br>
-<%= f.submit "Create a new Location" %>
-<% end %>
+<%= render 'form' %>
+
 
 <%= link_to "Back", physicians_path, class:"btn btn-primary btn-light" %>

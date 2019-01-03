@@ -1,10 +1,12 @@
 <h1> Listing all available Locations in AppointmentMD </h1>
-<p><h2> Click on the name of the location to see more about that location</h2><p>
+<p><h2> Click on the name of the location to know more about that location</h2><p>
 <% @locations.each do |location| %>
 <%= link_to "#{location.name}", location_path(location) %>
 <br><br>
 <% end %>
 <br><br><br>
 
+
+<%= link_to "Create a new Location", new_location_path %>
 <%= link_to "See Physicians", physicians_path, class:"btn btn-primary btn-light" %>
 <%= link_to "Log Out", logout_path, class:"btn btn-primary btn-light" %>
