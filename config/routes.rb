@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
 
   root 'welcome#home'
+
+
+  get '/auth/facebook/callback' => 'sessions#create_physician_fb'
   #get '/auth/facebook/callback' => 'sessions#create'
 
   get 'patient/signin', to: 'sessions#new_patient'
@@ -11,10 +14,20 @@ Rails.application.routes.draw do
   get '/logout', to:  'sessions#destroy'
 
 
-  resources :physicians
+
+
+  resources :physicians do
+    resources :appointments, only: [:edit, :new, :create, :destroy]
+  end
+  resources :physician do
+    resources :locations, only: [:edit, :new, :create, :destroy]
+  end
+
+
+
   resources :patients
-  resources :locations
-  resources :appointments
+  resources :locations , only: [:show]
+  resources :appointments, only: [:show]
 
 
 

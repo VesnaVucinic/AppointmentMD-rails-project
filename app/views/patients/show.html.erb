@@ -1,16 +1,32 @@
 <h1>Name:<%= @patient.name %></h1>
 <br><br>
 <% if @patient.appointments %>
-<% @patient.appointments.each do |appointment| %>
-<ul>
-<li>You have an appointment on: <%= appointment.date %></li>
-<li><%= appointment.time %></li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Physician's Name</th>
+      <th>Specialty</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Location</th>
+    </tr>
+    </thead>
+    <tbody>
+<% @appointments.each do |appointment| %>
+<tr>
+<td>You have an appointment with: <%= link_to appointment.physician.name, physician_appointments_path(appointment.physician)  %></td>
+<td><%= appointment.physician.specialty %></td>
+<td><%= appointment.date.strftime('%a, %b %d, %Y') %></td>
+<td><%= appointment.time('l:%M %p') %></td>
+<td><%= appointment.location %></td>
+</tr>
 <% end %>
+</tbody>
+</table>
 <% else %>
 <%= "You currently have no appointments. Would you like to set a new appointment?" %>
 <% end %>
-<h3><p><%= link_to "See Physicians", physician_path, class:"btn btn-primary btn-light" %></p>
+<h3><p><%= link_to "See All Your Appointments", appointment_path, class:"btn btn-primary btn-light" %></p>
     <p><%= link_to "Edit Your Info", edit_patient_path(@patient), class:"btn btn-primary btn-light" %></p>
     <p><%= link_to "Back", patients_path, class:"btn btn-primary btn-light" %></p>
     <p><%= link_to "Log Out", logout_path, class:"btn btn-primary btn-light" %></p></h3>

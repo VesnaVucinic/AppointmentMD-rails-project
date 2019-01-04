@@ -1,19 +1,31 @@
 class PhysiciansController < ApplicationController
+ before_action :find_physician, only: [:show, :edit, :update]
 
 
-  def new
-    @physician = Physician.new
-  end
+ def index
+   @physicians = Physician.all
+ end
 
-  def index
-    @physicians = Physician.all
-  end
+
+ def show
+ end
+
+
+
+ def new
+   @physician = Physician.new
+ end
+
+
+
+ def edit
+ end
+
 
 
   def create
     @physician = Physician.new(physician_params)
-    if @physician
-      @physician.save
+    if @physician.save
       flash[:notice] = "Successfully created Physician"
       session[:physician_id] = @physician.id
       redirect_to physician_path(@physician)
@@ -24,27 +36,18 @@ class PhysiciansController < ApplicationController
   end
 
 
-  def show
-    @physician = Physician.find_by(id: params[:id])
-  end
-
-  def edit
-    find_physician
-  end
 
 
   def update
-   find_physician
-   @physician.update(physician_params)
-   if @physician.valid?
-     redirect_to physician_path
+   if @physician.update(physician_params)
+     redirect_to physician_path(@physician)
    else
      redirect_to edit_physician_path
    end
   end
 
   def destroy
-    find_physician
+    @physician.destroy 
     redirect_to root_path
   end
 

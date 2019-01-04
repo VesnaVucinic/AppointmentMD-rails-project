@@ -1,4 +1,4 @@
-<h1>Listing All Physicians In AppointmentMD</h1>
+<h1><%= Listing All @physician.count Physicians In AppointmentMD %></h1>
 <br><br>
 
 
@@ -7,22 +7,23 @@
     <th>Name</th>
     <th>Specialty</th>
     <th>Locations</th>
+    <th>Appointments</th>
     <th></th>
     <th></th>
     <th></th>
+  </tr>
+  <tbody>
+   <% @physicians.each do |physician| %>
+    <tr>
+     <td><%= link_to physician.name, physician_appointments_path(physician) %></td>
+     <td><%= physician.specialty %></td>
+     <td><%= link_to physician.appointments, physician_appointments_path() %></td>
+     <td><%= physician.locations %></td>
     </tr>
+   <% end %>
+  </tbody>
+</table>
+  <br>
 
 
-  <% @physicians.each do |physician| %>
-  <tr>
-    <td><%= link_to physician.name, physician %></td>
-    <td><%= physician.specialty %></td>
-
-      <td><%= link_to 'Show', physician %></td>
-      <td><%= link_to 'Edit', edit_physician_path(physician) %></td>
-      </tr>
-      <% end %>
-      </table>
-      <br>
-
-      <%= link_to 'New Physician', new_physician_path %>
+<%= link_to 'View Appointments', appointments_path %>

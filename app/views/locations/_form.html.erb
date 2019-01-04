@@ -9,10 +9,10 @@
   <%= f.text_field :city %>
   <br>
   <%= f.label :state %>
-  <%= f.text_field :state %>
+  <%= f.select :state, ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','UT','VT','VA','WA','WV','WI','WY'] %> %>
   <br>
   <%= f.label :zipcode %>
-  <%= f.text_field :zipcode %>
+  <%= f.number_field :zipcode %>
   <br>
   <%= f.label :hours_of_operation %>
   <%= f.time_field :hours_of_operation %>

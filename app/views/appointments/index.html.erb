@@ -1,9 +1,12 @@
-<h1> Listing appointments <h1>
+<h1>Listing Appointments <h1>
 
   <table>
     <tr>
       <th>Physician</th>
       <th>Patient</th>
+      <th>Appointment Location</th>
+      <th>Appointment Date</th>
+      <th>Appointment Time</th>
       <th></th>
       <th></th>
       <th></th>
@@ -11,16 +14,16 @@
 
 
      <% @appointments.each do |appointment| %>
-     <tr>
-       <td><%= link_to Physician.find(appointment.physician_id).name, appointment.physician %></td>
-       <td><%= link_to Patient.find(appointment.patient_id).name, appointment.patient %></td>
-       <td><%= link_to Location.find(appointment.location_id)name, appointment.loaction %></td>
-       <td><%= link_to 'Show', appointment %></td>
-       <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-       </tr>
-       <% end %>
-       </table>
-       <br>
+      <tr>
+       <td><%= link_to appointment.physician.name, physician_path(appointment.physician) %></td>
+       <td><%= link_to appointment.patient.name, patient_path(appointment.patient) %></td>
+       <td><%= link_to appointment.location.name, appointment_path(appointment.location) %></td>
+       <td><%= link_to appointment.date.strftime('%a, %b %d, %Y')%></td>
+       <td><%= link_to appointment.time.strftime('%l:%M %p') %></td>
+      </tr>
+     <% end %>
+    </table>
+    <br>
 
 
-       <%= link_to 'Create a new appointment', new_appointment_path %>
+    <%= link_to 'Create a new appointment', new_physician_appointment_path(@physician) %>

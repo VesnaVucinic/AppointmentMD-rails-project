@@ -1,12 +1,12 @@
 <h1>Appointment Info page</h1>
 <br></br>
 <h2>Physician:</h2>
-<%= link_to Physician.find_by(@appointment.physician_id).name, @appointment.physician %>
+<%= link_to Physician.find_by(@appointment), @appointment %>
 <br>
 <h2>Patient</h2>
-<%= link_to Patient.find(@appointment.patient_id).name, @appointment.patient %>
+<%= link_to Patient.find_by(@appointment), @appointment %>
 <br><br>
 
 
-<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+<%= link_to 'Edit', edit_appointment_path(@appointment) %>
 <%= link_to 'Back', appointments_path %>

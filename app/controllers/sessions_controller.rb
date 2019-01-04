@@ -29,8 +29,21 @@ class SessionsController < ApplicationController
   def create_physician
     @physician = Physician.find_by(name: params[:name])
     if @physician && @physician.authenticate(params[:physician][:password])
-      sessions[:physician_id] = @physician.id
+      session[:physician_id] = @physician.id
       flash[:notice] = "Successfully created a Physician"
+      redirect_to physician_path(@physician)
+    else
+      render 'sessions/new_physician'
+    end
+  end
+
+
+  def create_physician_fb
+    @physician = Physician.find_by(email: auth['info']['email'])
+
+    if @physician
+      session[:physician_id] = @physician.id
+      flash[:notice] = "Successfully logged in with Facebook"
       redirect_to physician_path(@physician)
     else
       render 'sessions/new_physician'

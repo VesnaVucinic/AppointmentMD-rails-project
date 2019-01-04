@@ -1,20 +1,26 @@
 class AppointmentsController < ApplicationController
-  def new
-    @appointment = Appointment.new
-  end
+  before_action :find_appointment, only: [:show, :edit, :update]
 
-  def show
-    @appointment = Appointment.find(params[:id])
-  end
 
   def index
     @appointments = Appointment.all
   end
 
+  def show
+  end
+
+
+  def new
+    @appointment = Appointment.new
+  end
+
+  def edit
+  end
+
+
   def create
     @appointment = Appointment.new(appointment_params)
-    if @appointment
-      @appointment.save
+      if  @appointment.save
       flash[:notice] = "Successfully Created a new Appointment"
       redirect_to appointment_path(@appointment)
     else
@@ -23,26 +29,27 @@ class AppointmentsController < ApplicationController
   end
 
   def update
-    @appointment.update(appointment_params)
-    if @appointment.save
+     if @appointment.update(appointment_params)
       flash[:notice] = "Successfully updated Appointment"
       redirect_to appointment_path(@appointment)
     else
       flash[:notice] = "There was an Error Updating Appointment Info"
-      redirect_to appointment_path(@appointment)
+      redirect_to edit_appointment_path(@appointment)
     end
   end
 
 
 
-  def destroy
-  end
-
 
   private
 
   def appointment_params
-    params.require(:appointment).permit(:date, :time, [:appointment][:physician], [:appointment][:patient], [:appointment][:location])
+    params.require(:appointment).permit(:date, :time, :physician_id, :patient_id, :location_id)
+  end
+
+
+  def find_appointment
+    @appointment = Appointment.find_by(id: params[:id])
   end
 
 end

@@ -1,4 +1,16 @@
 class PatientsController < ApplicationController
+  before_action :find_patient, only: [:show, :edit, :update]
+
+
+  def index
+    @patients = Patient.all
+  end
+
+
+  def show
+    @appointments = Appointment.all
+  end
+
 
 
   def new
@@ -6,9 +18,11 @@ class PatientsController < ApplicationController
   end
 
 
-  def index
-    @patients = Patient.all
+
+  def edit
+    find_patient
   end
+
 
 
   def create
@@ -23,19 +37,11 @@ class PatientsController < ApplicationController
     end
   end
 
-  def show
-   find_patient
-  end
 
-  def edit
-    find_patient
-  end
 
 
   def update
-    find_patient
-    @patient.update(patient_params)
-    if @patient.save
+  if @patient.update(patient_params)
       flash[:notice] = "Successfully Updated Patient"
       redirect_to patient_path(@patient)
     else
@@ -44,11 +50,6 @@ class PatientsController < ApplicationController
     end
   end
 
-  def destroy
-    find_patient
-    @patient.destroy
-    redirect_to root_path
-  end
 
 
   private
