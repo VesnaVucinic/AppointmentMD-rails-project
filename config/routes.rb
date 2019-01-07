@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#create_physician_fb'
 get 'auth/failure' => 'sessions#new_physician'
 
-  get 'patient/signin', to: 'sessions#new_patient'
-  post 'patient/signin', to: 'sessions#create_patient'
+  get 'patient/signin', to: 'sessions#new'
+  post 'patient/signin', to: 'sessions#create'
 
-  get 'physician/signin', to: 'sessions#new_physician'
-  post 'physician/signin', to: 'sessions#create_physician'
+  get 'physician/signin', to: 'sessions#new'
+  post 'physician/signin', to: 'sessions#create'
 
   delete '/logout', to:  'sessions#destroy'
 
@@ -31,7 +31,7 @@ get 'auth/failure' => 'sessions#new_physician'
 
   resources :patients do
     resources :appointments
-end 
+end
 
 
 

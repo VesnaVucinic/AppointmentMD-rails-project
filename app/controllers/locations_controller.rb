@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
-
+before_action :login_required
+before_action :find_location, except: [:index, :new, :create]
 
 
   def new
@@ -11,7 +12,13 @@ class LocationsController < ApplicationController
   end
 
   def index
+    if @current_patient
     @locations = Location.all
+  elsif @current_physician
+    @location = Location.where("physician_id = ?", @current_physician.id)
+  else
+    flash[:notice] = "You have to be logged in to view this page"
+    redirect_to root_path
   end
 
 
@@ -48,6 +55,11 @@ class LocationsController < ApplicationController
   def location_params
     params.require(:location).permit(:name, :street, :city, :state, :zipcode, :hours_of_operation, :physician_id)
   end
+
+  def find_patient
+    @patient = Patient.find_by(id: params[:id])
+  end
+
 
 
   def find_location
