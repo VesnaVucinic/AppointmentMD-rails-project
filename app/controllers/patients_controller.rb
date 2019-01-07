@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-  before_action :find_patient, only: [:show, :edit, :update]
+
 
 
   def index
@@ -8,7 +8,7 @@ class PatientsController < ApplicationController
 
 
   def show
-    @appointments = Appointment.all
+  @patient = Patient.find(params[:id])
   end
 
 
@@ -20,7 +20,7 @@ class PatientsController < ApplicationController
 
 
   def edit
-    find_patient
+    @patient = Patient.find(params[:id])
   end
 
 
@@ -30,7 +30,7 @@ class PatientsController < ApplicationController
     if @patient.save
       flash[:notice] = "Successfully created a new Patient"
       session[:patient_id] = @patient.id
-      redirect_to patient_path(@patient)
+      redirect_to @patient
     else
       flash[:notice] = "There was an error creating a new Patient"
       render 'patients/new'
@@ -41,12 +41,13 @@ class PatientsController < ApplicationController
 
 
   def update
+    @patient = Patient.find(params[:id])
   if @patient.update(patient_params)
       flash[:notice] = "Successfully Updated Patient"
-      redirect_to patient_path(@patient)
+      redirect_to @patient
     else
       flash[:notice] = "There was an Error Updating Patient Info"
-      redirect_to edit_patient_path(@pateint)
+      redirect_to edit_patient_path(@patient)
     end
   end
 

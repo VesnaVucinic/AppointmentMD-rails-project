@@ -1,5 +1,7 @@
 class PhysiciansController < ApplicationController
- before_action :find_physician, only: [:show, :edit, :update]
+  before_action :logged_in, except: [:index, :show, :new, :create]
+  before_action :find_physician, except: [:index, :new, :create]
+
 
 
  def index
@@ -8,17 +10,28 @@ class PhysiciansController < ApplicationController
 
 
  def show
+  if @physician
+    @appointment = Appointment.where("physician_id = ?", @physician.id)
+  else
+    @appointments = nil
+  end
  end
 
 
 
  def new
-   @physician = Physician.new
+   if @physician
+     redirect_to physician_path(@physician)
+   elsif @patient
+   redirect_to patient_path(@patient)
+ end
+ @physician = Physician.new
  end
 
 
 
  def edit
+   @physician = Physician.find(params[:id])
  end
 
 
@@ -27,7 +40,6 @@ class PhysiciansController < ApplicationController
     @physician = Physician.new(physician_params)
     if @physician.save
       flash[:notice] = "Successfully created Physician"
-      session[:physician_id] = @physician.id
       redirect_to physician_path(@physician)
     else
       flash[:notice] = "There was an error creating a new Physician"
@@ -36,19 +48,19 @@ class PhysiciansController < ApplicationController
   end
 
 
-
-
   def update
+    @physician = Physician.find(params[:id])
    if @physician.update(physician_params)
      redirect_to physician_path(@physician)
    else
-     redirect_to edit_physician_path
+     redirect_to edit_physician_path(@physician)
    end
   end
 
+
   def destroy
-    @physician.destroy 
-    redirect_to root_path
+    @physician.destroy
+    redirect_to physician_path
   end
 
 

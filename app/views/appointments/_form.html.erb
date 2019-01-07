@@ -1,4 +1,4 @@
-<%= form_for(@physician, @appointment) do |f| %>
+<%= form_for(@appointment) do |f| %>
 <%= f.label :date %>
 <%= f.date_field :date %>
 <br>
@@ -11,7 +11,7 @@
 <%= f.label :patient_id %>
 <%= f.collection_select :patient_id, Patient.all, :id, :name %>
 <br>
-<%= f.label :loaction_id %>
+<%= f.label :location_id %>
 <%= f.collection_select :location_id, Location.all, :id, :name %>
 <br>
 <%= f.submit %>

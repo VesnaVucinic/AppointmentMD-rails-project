@@ -8,6 +8,7 @@ class CreateLocations < ActiveRecord::Migration[5.2]
       t.integer :zipcode
       t.time :hours_of_operation
       t.integer :physician_id
+      t.integer :appointment_id
 
 
       t.timestamps

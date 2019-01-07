@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_01_02_165924) do
     t.integer "zipcode"
     t.time "hours_of_operation"
     t.integer "physician_id"
+    t.integer "appointment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
